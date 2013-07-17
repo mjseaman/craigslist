@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Welcome to Mitch's List!</h1>
+  <h2>Create a new listing:</h2>
+
+  <form action="/create_listing" method="post">
+    Item category:
+    <br>
+    <select name="category">
+      <% Category.all.each  do |category| %>
+        <option value=<%= category.id %>><%= category.name %></option>
+      <% end %>
+    </select>
+    <br>
+    Item name:
+    <br>
+    <input type="text" name="item_name">
+    <br>
+    Item price:
+    <br>
+    <input type="number" name="price" step="0.01">
+    <br>
+    Image link (should be a direct link to the image):
+    <br>
+    <input type="url" name="image_url">
+    <br>
+    Your email address:
+    <br>
+    <input type="email" name="email">
+    <br>
+    Description of the item:
+    <br>
+    <TEXTAREA name="description" rows=3 cols=30 ></TEXTAREA>
+    <br>
+    <input type="submit" value="Enter!">
+  </form>
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Welcome to Mitch's List!</h1>
+  <h2>Here's the detail on your item:</h2>
+
+  <% listing = Listing.find(@listing_id)%>
+  
+  <div id="details">
+    <h3>Name:</h3>
+    <p><%= listing.item_name %></p>
+    <h3>Price:</h3>
+    <p>$<%= format("%.2f",listing.price/100.0) %></p>
+    <h3>Description:</h3>
+    <p><%= listing.description %></p>
+    <h3>Pics.</h3>
+    <img src="http://www.academiabarilla.com/anteprima_prosciuttodiparmadop_0494.aspx" alt="Image" />
+  </div>
+</div>
+

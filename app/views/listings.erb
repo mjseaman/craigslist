@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Welcome to Mitch's List!</h1>
+  <h2>Here are the listings in category <code><%= Listing.where("category_id = ?", @cat_id).name %></code>:</h2>
+
+  <table>
+    <tr>
+      <th>Listing</th>
+      <th>Price</th>
+      <th>Description</th>
+    </tr>
+        <% Listing.where("category_id = ?", @cat_id).each do |listing| %>
+          <tr>
+            <td><a href="/listings/detail/?listing_id=<%=listing.id%>"><%=listing.item_name%></a></td>
+            <td>$<code><%= listing.price/100.0 %></code></td>
+            <td><code><%= listing.description %></code></td>
+          </tr>
+        <% end %>
+  </table>
+</div>

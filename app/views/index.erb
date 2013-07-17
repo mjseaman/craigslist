@@ -1,23 +1,17 @@
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
+  <h1>Welcome to Mitch's List!</h1>
+  <h2>Here are the search categories:</h2>
 
   <table>
     <tr>
-      <th>File Description</th>
-      <th>File Location</th>
+      <th>Category</th>
+      <th>Description</th>
     </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
+        <% Category.all.each do |category| %>
+          <tr>
+            <td><a href="/listings/?cat_id=<%=category.id%>"><%=category.name%></a></td>
+            <td><code><%= category.description %></code></td>
+          </tr>
+        <% end %>
   </table>
 </div>
